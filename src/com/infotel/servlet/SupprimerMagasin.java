@@ -7,21 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.infotel.wssoap.Magasin;
 import com.infotel.wssoap.MagasinSoapService;
 import com.infotel.wssoap.MagasinSoapServiceProxy;
 
 /**
- * Servlet implementation class CalculPrixMagasin
+ * Servlet implementation class SupprimerMagasin
  */
-@WebServlet("/CalculPrixMagasin")
-public class CalculPrixMagasin extends HttpServlet {
+@WebServlet("/SupprimerMagasin")
+public class SupprimerMagasin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CalculPrixMagasin() {
+    public SupprimerMagasin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +32,15 @@ public class CalculPrixMagasin extends HttpServlet {
 		
 		MagasinSoapService mag = new MagasinSoapServiceProxy();
 		
-		Magasin magasin = new Magasin();
-		long idMagasin = 0;
-		
-		idMagasin = Long.parseLong(request.getParameter("idMagasin"));
-		//magasin = mag.getMagasin(idMagasin);
-		
+		long idMagasin = Long.parseLong(request.getParameter("idMagasin"));
+		//Personne p = services.getPersonne(Integer.parseInt(request.getParameter("idPersonne")));
+		//services.supprimerPersonne(p);
+		mag.supprimerMagasin(idMagasin);
+		// 3 - Preparation a l'envoi à JSP
 		request.setAttribute("magasins",mag.getAllMagasin());
-		request.setAttribute("prixMagasin",mag.calculPrixMagasin(idMagasin));
-		
+				
 		// 4 - Envoi a la JSP
-		request.getRequestDispatcher("calculPrixMagasin.jsp").forward(request, response);
+		request.getRequestDispatcher("supprimerMagasin.jsp").forward(request, response);
 	}
 
 	/**

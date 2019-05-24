@@ -11,11 +11,6 @@
 <body>
 	<div class="container">
 		<form action="CalculPrixMagasin">   <!-- fichier java (Servlet) de destination donc "ServletPersonne" -->
-<!--   			<div class="form-group"> -->
-<!--     			<label for="montantinit">Montant en euros</label> -->
-<%--     			<input type="text" class="form-control" id="montantinit" name="montantinit" value="${montantinit }"required>		<!-- request.getParameter("prenom") --> --%>
-<!--   			</div>  	 -->
-  			
   			<div>
   				Magasins : <select name="idMagasin">
 					<optgroup>

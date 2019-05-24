@@ -7,21 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.infotel.wssoap.Magasin;
-import com.infotel.wssoap.MagasinSoapService;
-import com.infotel.wssoap.MagasinSoapServiceProxy;
-
 /**
- * Servlet implementation class CalculPrixMagasin
+ * Servlet implementation class AjouterProduit
  */
-@WebServlet("/CalculPrixMagasin")
-public class CalculPrixMagasin extends HttpServlet {
+@WebServlet("/AjouterProduit")
+public class AjouterProduit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CalculPrixMagasin() {
+    public AjouterProduit() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,20 +26,8 @@ public class CalculPrixMagasin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		MagasinSoapService mag = new MagasinSoapServiceProxy();
-		
-		Magasin magasin = new Magasin();
-		long idMagasin = 0;
-		
-		idMagasin = Long.parseLong(request.getParameter("idMagasin"));
-		//magasin = mag.getMagasin(idMagasin);
-		
-		request.setAttribute("magasins",mag.getAllMagasin());
-		request.setAttribute("prixMagasin",mag.calculPrixMagasin(idMagasin));
-		
-		// 4 - Envoi a la JSP
-		request.getRequestDispatcher("calculPrixMagasin.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
